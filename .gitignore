@@ -1,4 +1,5 @@
 ws-backend/target
+http-backend/target
 
 frontend/logs
 frontend/*.log

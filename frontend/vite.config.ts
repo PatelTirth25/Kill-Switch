@@ -1,9 +1,13 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 
 // https://vite.dev/config/
-export default defineConfig({
-  server: {
-    port: 8080,
-    open: true,
-  },
-});
+export default defineConfig(({
+  mode,
+}) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  return {
+    define: {
+      'process.env': env
+    },
+  };
+})
