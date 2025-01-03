@@ -1,6 +1,10 @@
 import { Player } from "./player";
 import { You } from "./you";
 import { WEAPON_VISIBILITY, VISIBILITY, LENGTH } from "../utils/config";
+import { socket } from "../main";
+import { EventType } from "../communication/event_types";
+import { getId } from "../utils/id";
+import { stopRoom } from "../utils/stoproom";
 
 let players: Player[] = []
 let you: You;
@@ -26,7 +30,7 @@ export const addYou = (id: string, x: number, y: number, weapon: boolean) => {
   you = new You(id, x, y, weapon)
 }
 
-export const removePlayer = (id: string) => {
+export const removePlayer = async (id: string) => {
   players = players.filter((player) => {
     if (player.id === id) {
       player.remove()
@@ -34,10 +38,18 @@ export const removePlayer = (id: string) => {
     }
     return true;
   })
+
+  if (players.length === 0) {
+    socket.send(EventType.PLAYER_LEAVE, { id: getId() })
+    await stopRoom()
+    window.location.href = "/win"
+  }
 }
 
 export const removeYou = () => {
   you.remove()
+
+  window.location.href = "/room"
 }
 
 export const updatePlayer = (id: string, x: number, y: number, weapon: boolean) => {

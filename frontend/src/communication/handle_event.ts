@@ -3,7 +3,7 @@ import { mapInit, updateMap } from "../gamestate/map";
 import { getId } from "../utils/id";
 import { EventType } from "./event_types";
 
-export const handleEvent = (event: string) => {
+export const handleEvent = async (event: string) => {
   const e = JSON.parse(event)
 
   switch (e.event_type as EventType) {
@@ -37,7 +37,7 @@ export const handleEvent = (event: string) => {
         removeYou()
       }
       else {
-        removePlayer(e.data.id)
+        await removePlayer(e.data.id)
       }
 
       break;

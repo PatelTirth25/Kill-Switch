@@ -16,7 +16,7 @@ mod handle_messages;
 
 #[tokio::main]
 async fn main() {
-    let addr: SocketAddr = "127.0.0.1:3001".parse().expect("Invalid address");
+    let addr: SocketAddr = "0.0.0.0:3001".parse().expect("Invalid address");
 
     let listener = TcpListener::bind(&addr).await.expect("Failed to bind");
 

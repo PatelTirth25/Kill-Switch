@@ -15,7 +15,7 @@ document.getElementById("create-room")?.addEventListener("click", async () => {
     }
     localStorage.setItem("roomId", roomId)
 
-    const r = await fetch((process.env.HTTP_URL || 'localhost:3010/') + 'room', {
+    const r = await fetch((process.env.HTTP_URL || 'localhost:3010/') + 'room/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

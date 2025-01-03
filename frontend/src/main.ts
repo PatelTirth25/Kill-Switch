@@ -16,11 +16,19 @@ export let app: Application
   if (!localStorage.getItem("roomId")) {
     window.location.href = "/room"
   }
+  if (!localStorage.getItem("ws_url")) {
+    window.location.href = "/room"
+  }
 
   app = await appInit()
   console.log('URL: ', localStorage.getItem("ws_url"))
   socket = new SocketManager(localStorage.getItem("ws_url") || "ws://localhost:3000");
   socket.send(EventType.PLAYER_JOIN, { id: getId() })
+
+  // on window close or leaving page send socket player_leave
+  window.addEventListener("beforeunload", () => {
+    socket.send(EventType.PLAYER_LEAVE, { id: getId() })
+  })
 
 })();
 

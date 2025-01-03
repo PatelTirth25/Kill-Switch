@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Debug, Deserialize)]
+#[derive(Serialize, Debug, Deserialize, Clone)]
 pub struct Room {
-    id: String,
+    pub id: String,
 }
 
 #[derive(Serialize, Debug, Deserialize)]
