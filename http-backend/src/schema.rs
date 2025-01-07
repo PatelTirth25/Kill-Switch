@@ -10,7 +10,7 @@ diesel::table! {
 
 diesel::table! {
     users (id) {
-        id -> Int4,
+        id -> Int8,
         username -> Varchar,
         password -> Varchar,
     }
