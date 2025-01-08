@@ -4,38 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Login and SignUp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: #2d3436;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0984e3;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #dfe6e9;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #0984e3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #74b9ff;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section:first-of-type {
+            margin-top: 0;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="section">
+            <h1>Login</h1>
+            <div class="form-group">
+                <label for="l-username">Username</label>
+                <input type="text" id="l-username" name="l-username">
+            </div>
+            <div class="form-group">
+                <label for="l-password">Password</label>
+                <input type="password" id="l-password" name="l-password">
+            </div>
+            <button id="login">Login</button>
+        </div>
 
-    <h1>Login</h1>
-    <div>
-        <label for="l-username">Username</label>
-        <input type="text" id="l-username" name="l-username">
+        <div class="section">
+            <h1>SignUp</h1>
+            <div class="form-group">
+                <label for="s-username">Username</label>
+                <input type="text" id="s-username" name="s-username">
+            </div>
+            <div class="form-group">
+                <label for="s-password">Password</label>
+                <input type="password" id="s-password" name="s-password">
+            </div>
+            <div class="form-group">
+                <label for="s-confirm_password">Confirm Password</label>
+                <input type="password" id="s-confirm_password" name="s-confirm_password">
+            </div>
+            <button id="signup">SignUp</button>
+        </div>
     </div>
-    <div>
-        <label for="l-password">Password</label>
-        <input type="text" id="l-password" name="l-password">
-    </div>
-    <button id="login">Login</button>
-
-
-    <h1>SignUp</h1>
-    <div>
-        <label for="s-username">Username</label>
-        <input type="text" id="s-username" name="s-username">
-    </div>
-    <div>
-        <label for="s-password">Password</label>
-        <input type="text" id="s-password" name="s-password">
-    </div>
-    <div>
-        <label for="s-confirm_password">Confirm Password</label>
-        <input type="text" id="s-confirm_password" name="s-confirm_password">
-    </div>
-    <button id="signup">SignUp</button>
-
     <script type="module" src="/src/auth.ts"></script>
 </body>
 
