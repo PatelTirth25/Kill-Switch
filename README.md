@@ -1,4 +1,4 @@
-![alt text](https://github.com/PatelTirth25/Kill-Switch/images/architecture.png)
+![alt text](images/architecture.png)
 
 ## Technologies Used
 
